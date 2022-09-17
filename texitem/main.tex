@@ -1,0 +1,247 @@
+\documentclass[runningheads]{llncs}
+
+% \usepackage[utf8]{inputenc} % allow utf-8 input
+% \usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{lipsum}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{csquotes}
+% \usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{makecell}
+\usepackage{diagbox}
+
+\usepackage{comment}
+
+\usepackage{multirow}
+\usepackage{bm}
+\usepackage{caption}
+\captionsetup[table]{position=bottom} 
+
+\let\proof\relax
+\let\endproof\relax
+\usepackage{amsthm}
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newcommand{\defnautorefname}{Definition}
+\newtheorem{lem}{Lemma}
+\newcommand{\thmautorefname}{Theorem}
+\newtheorem{cor}{Corollary}
+\newcommand{\corautorefname}{Corollary}
+
+\newtheorem{prop}{Proposition}
+\newcommand{\propautorefname}{Proposition}
+
+\def\ourmodel{\textit{IRAE}}
+
+% ZQ package and command
+\usepackage{bbding}
+\usepackage{pifont}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\newcommand{\xmark}{\ding{55}}%
+\usepackage{tablefootnote}
+\usepackage{authblk}
+\usepackage{tabularx} 
+\usepackage[misc]{ifsym}
+
+\newcommand{\etal}{\textit{et al}. }
+\newcommand{\ie}{\textit{i}.\textit{e}., }
+\newcommand{\eg}{\textit{e}.\textit{g}. }
+
+\makeatletter
+\newcommand{\printfnsymbol}[1]{%
+  \textsuperscript{\@fnsymbol{#1}}%
+}
+\makeatother
+
+% DW package and command
+% once we've finished writing we can simply modify this command to keep the latest version.
+\newcommand{\rev}[2]{{\color{red}{#1}}$\rightarrow${\color{blue}{#2}}}
+\usepackage[normalem]{ulem}
+\newcommand{\remove}[1]{\sout{#1}}
+
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\X}{\mathbf{X}}
+\newcommand{\z}{\mathbf{z}}
+\newcommand{\m}{\mathbf{m}}
+\newcommand{\n}{\mathbf{n}}
+\newcommand{\nphi}{n_{\mathbf{\phi}}}
+\newcommand{\mii}{\mathbb{I}}
+\newcommand{\miiphi}{\mathbb{I}_{\mathbf{\phi}}}
+\newcommand{\miin}{\widehat{\mathbb{I}}_{n}}
+\newcommand{\ejxy}{\mathbb{E}_{(\mathbf{X},Y)}}
+\newcommand{\e}{\mathbb{E}}
+\newcommand{\emxy}{\mathbb{E}_{\mathbf{X}}\mathbb{E}_{Y}}
+\newcommand{\ejxyn}{\mathbb{E}_{(\mathbf{X},Y)_n}}
+\newcommand{\emxyn}{\mathbb{E}_{\mathbf{X}_n}\mathbb{E}_{Y_n}}
+\newcommand{\ex}{\mathbb{E}_{\mathbf{X}}}
+\newcommand{\ey}{\mathbb{E}_{Y}}
+\newcommand{\exn}{\mathbb{E}_{\mathbf{X}_n}}
+\newcommand{\eyn}{\mathbb{E}_{Y_n}}
+
+\DeclareMathOperator{\PMI}{PMI}
+\DeclareMathOperator{\Diff}{Diff}
+
+\newcommand{\STAB}[1]{\begin{tabular}{@{}c@{}}#1\end{tabular}}
+
+% Include other packages here, before hyperref.
+\usepackage{subcaption}
+\usepackage{float}
+
+\begin{document}
+
+
+%%%%%%%%% TITLE
+
+
+\title{A Stable Training Pipeline for Cascade Networks}
+
+%
+%\titlerunning{Abbreviated paper title}
+% If the paper title is too long for the running head, you can set
+% an abbreviated paper title here
+%
+\author{Jieli Zheng\inst{1} \and
+Zhenyue Qin\inst{1} \and
+Yang Liu\inst{1,2}}
+%
+\authorrunning{JL. Zheng et al.}
+% First names are abbreviated in the running head.
+% If there are more than two authors, 'et al.' is used.
+%
+\institute{
+Australian National University$^1$, Data61-CSIRO$^2$ \\
+% Australian National University, Australia \\
+}
+%
+\maketitle              % typeset the header of the contribution
+\email{u6579712@anu.edu.au, yang.liu3@anu.edu.au, zhenyue.qin@anu.edu.au
+% , tom@cs.anu.edu.au 
+\\} 
+
+
+
+
+%%%%%%%%% ABSTRACT
+\begin{abstract}
+   \input{components/abs}
+\end{abstract}
+
+%%%%%%%% KEYWORDS
+\keywords{Computer Science  \and Artificial Intelligence \and Classification \and Cascade networks \and Constructive networks \and Casper.}
+
+%%%%%%%% Introduction 
+\input{components/intro}
+
+%%%%%%%% Related Work 
+\input{components/related}
+
+%%%%%%%% Preliminaries Approaches
+\input{components/appro}
+
+
+
+%%%%%%%% Result & Analysis 
+\input{components/resultanalysis}
+
+%%%%%%%% Conclusion & Future Work 
+\input{components/con}
+
+
+
+
+
+% \clearpage
+{\small
+\bibliographystyle{splncs04}
+% \bibliography{egbib}
+
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{CascadeCorrelation1990}
+Fahlman, S.E., and Lebiere, C. (1990) The cascade-correlation learning architecture. 
+In Advances in Neural Information Processing II,Touretzky, Ed. SanMateo, CA: Morgan 
+Kauffman, 1990, pp. 524-532.
+
+\bibitem{GeneralisationConstructiveCascade2009}
+Khoo S., Gedeon T. (2009) Generalisation Performance vs. Architecture Variations in Constructive Cascade Networks. In: Köppen M., Kasabov N., Coghill G. (eds) Advances in Neuro-Information Processing. ICONIP 2008. Lecture Notes in Computer Science, vol 5507. Springer, Berlin, Heidelberg. \doi{10.1007/978-3-642-03040-6_29}
+
+\bibitem{CNNClassification2015}
+Zhang, Y., \& Wallace, B. (2015). A sensitivity analysis of (and practitioners' guide to) convolutional neural networks for sentence classification. arXiv preprint arXiv:1510.03820.
+
+\bibitem{SARSCOV2_2020}
+Eskild, P., Marion, K., Unyeong, G., Davidson, H, H., Nicola, P., Francesco, C., Merete, S., Sulien, Al, K., Lone, Simonsen. (2020). Comparing SARS-CoV-2 with SARS-CoV and influenza pandemics. The Lancet Infectious Diseases, 20, 238-244. Retrieved April 24, 2021, from \doi{10.1016/S1473-3099(20)30484-9}
+
+
+\bibitem{CASPER1997}
+Treadgold, N. K., \& Gedeon, T. D. (1997, June). A cascade network algorithm employing progressive RPROP. In International Work-Conference on Artificial Neural Networks (pp. 733-742). Springer, Berlin, Heidelberg.
+
+\bibitem{variationscascade1998}
+Treadgold, N. K., \& Gedeon, T. D. (1998, May). Exploring architecture variations in constructive cascade networks. In Neural Networks Proceedings, 1998. IEEE World Congress on Computational Intelligence. The 1998 IEEE International Joint Conference on (Vol. 1, pp. 343-348). IEEE.
+
+\bibitem{exploringcascade1999}
+Treadgold, N. K., \& Gedeon, T. D. (1999). Exploring constructive cascade networks. IEEE Transactions on Neural Networks, 10(6), 1335-1350.
+
+\bibitem{dataset1_2005}
+Mendis, B. S., Gedeon, T. D., \& Koczy, L. T. (2005). Investigation of aggregation in fuzzy signatures, in Proceedings, 3rd International Conference on Computational Intelligence, Robotics and Autonomous Systems, Singapore.  \url{http://users.cecs.anu.edu.au/~Tom.Gedeon/pdfs/Investigation%20of%20Aggregation%20in%20Fuzzy%20Signatures.pdf}
+
+\bibitem{covidfeatures2020}
+Huang, C., Wang, Y., Li, X., Ren, L., Zhao, J., Hu, Y., Zhang, L., Fan, G., Xu, J., Gu, X., Cheng, Z., Yu, T., Xia, J., Wei, Y., Wu, W., Xie, X., Yin, W., Li, H., Liu, M., . . . Cao, B. (2020). Clinical features of patients infected with 2019 novel coronavirus in wuhan, china. The Lancet (British Edition), 395(10223), 497-506. \doi{10.1016/S0140-6736(20)30183-5}
+
+
+\bibitem{transferlearning2018}
+Gao, Y., \& Mosalam, K. M. (2018). Deep transfer learning for Image‐Based structural damage recognition. Computer-Aided Civil and Infrastructure Engineering, 33(9), 748-768. \doi{10.1111/mice.12363}
+
+
+\bibitem{vae2020}
+Weonyoung Joo, Wonsung Lee, Sungrae Park, Il-Chul Moon, Dirichlet Variational Autoencoder, Pattern Recognition,
+ Volume 107, 2020, 107514, ISSN 0031-3203, \doi{10.1016/j.patcog.2020.107514}.
+ 
+ \bibitem{vae2018}
+Jeremy Jordan. (2018). Variational autoencoders. Retrieved from \url{https://www.jeremyjordan.me/variational- autoencoders/}
+
+\bibitem{selfref2021}
+Zheng, J (2021) Best match between SARS classification and Constructive Correlation Neuron Networks, ABCs 2021 
+
+\bibitem{semisupervised2021}
+Lima, B. V. A., Neto, A. D. D., Silva, L. E. S., \& Machado, V. P. (2021). Deep semi‐supervised classification based in deep clustering and cross‐entropy. International Journal of Intelligent Systems, \doi{10.1002/int.22446}
+
+\bibitem{cvae}
+Ruichen, ZHANG, et al. "Widespread Bathymetric Outliers Detection and Elimination Based on Conditional Variational Autoencoder Generative Adversarial Network." Ce Hui Xue Bao, vol. 48, no. 9, 2019, pp. 1182-1189
+
+
+\bibitem{constructive}
+Kwok, Tin-Yau \& Yeung, Dit-Yan. (1997). Constructive algorithms for structure learning in feedforward neural networks for regression problems. Neural Networks, IEEE Transactions on. 8. 630 - 645. 10.1109/72.572102. 
+
+\bibitem{cvaeimage}
+Isaac Dykeman (2016). Conditional Variational Autoencoders. Retrieved from \url{https://ijdykeman.github.io/ml/2016/12/21/cvae.html}
+
+\bibitem{pastConstructive}
+Sharma, Sudhir & Chandra, Pravin. (2010). CONSTRUCTIVE NEURAL NETWORKS: A REVIEW. International Journal of Engineering Science and Technology. 2. 
+
+
+\end{thebibliography}
+
+}
+
+
+% \newpage
+% \onecolumn
+% \appendix
+% \input{secs/supplementary.tex}
+
+\end{document}
